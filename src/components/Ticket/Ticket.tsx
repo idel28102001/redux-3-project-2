@@ -1,9 +1,10 @@
 import React from 'react';
 
-import './Ticket.scss';
 import Button from '../Button';
 import Card from '../Card';
 import { ICard } from '../Card/Card';
+
+import styles from './Ticket.module.scss';
 
 function Ticket() {
   const cards: Array<ICard> = [
@@ -119,19 +120,19 @@ function Ticket() {
     },
   ];
   return (
-    <div className="ticket">
-      <div className="ticket__up">
-        <ul className="ticket__list">
+    <div className={styles.ticket}>
+      <div>
+        <ul className={styles.ticket__list}>
           {cards.map((e) => (
-            <li key={e.id} className="ticket__item">
+            <li key={e.id}>
               <Card item={e} />
             </li>
           ))}
         </ul>
       </div>
-      <div className="ticket__down">
-        <div className="ticket__more">
-          <Button />
+      <div className={styles.ticket__down}>
+        <div className={styles.ticket__more}>
+          <Button parentClass={styles.ticket__button} />
         </div>
       </div>
     </div>

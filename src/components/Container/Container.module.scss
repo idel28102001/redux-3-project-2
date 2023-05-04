@@ -1,0 +1,16 @@
+@use '../../styles-utils/index' as u;
+
+.container {
+  max-width: u.rem(754);
+  margin-inline: auto;
+
+  @include u.breakpoint(large) {
+    max-width: u.rem(550);
+  }
+  @include u.breakpoint(medium) {
+    max-width: u.rem(450);
+  }
+  @include u.breakpoint(small) {
+    max-width: u.rem(300);
+  }
+}

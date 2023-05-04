@@ -1,0 +1,35 @@
+@use '../../styles-utils/index' as u;
+
+.radios {
+  display: flex;
+
+  @include u.breakpoint(small) {
+    flex-direction: column;
+  }
+
+  &__item {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    border: 1px solid map-get(u.$palette, color-white-5);
+    background-color: map-get(u.$palette, color-white-2);
+    transition: background-color ease-in-out .15s;
+
+    &:first-child {
+      border-radius: u.rem(5) 0 0 u.rem(5);
+      @include u.breakpoint(small) {
+        border-radius: u.rem(5) u.rem(5) 0 0;
+
+      }
+    }
+
+    &:last-child {
+      border-radius: 0 u.rem(5) u.rem(5) 0;
+      @include u.breakpoint(small) {
+        border-radius: 0 0 u.rem(5) u.rem(5);
+
+      }
+    }
+  }
+}

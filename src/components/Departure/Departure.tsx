@@ -1,19 +1,22 @@
 import React from 'react';
+import classNames from 'classnames';
 
-import './Departure.scss';
 import Info from '../Info';
 import { IInfo } from '../Info/Info';
 
+import styles from './Departure.module.scss';
+
 interface DepartureProps {
   infoItems: Array<IInfo>;
+  parentClass?: string;
 }
 
-function Departure({ infoItems }: DepartureProps) {
+function Departure({ infoItems, parentClass }: DepartureProps) {
   return (
-    <div className="card__departure departure">
-      <ul className="departure__list">
+    <div className={classNames(styles.departure, parentClass)}>
+      <ul className={styles.departure__list}>
         {infoItems.map((e) => (
-          <li key={e.id} className="departure__item">
+          <li key={e.id}>
             <Info item={e} />
           </li>
         ))}

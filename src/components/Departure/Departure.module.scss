@@ -1,0 +1,10 @@
+@use '../../styles-utils/index' as u;
+
+.departure {
+  &__list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(10);
+  }
+}

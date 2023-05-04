@@ -1,5 +1,7 @@
+import classNames from 'classnames';
 import React from 'react';
-import './Time.scss';
+
+import styles from './Time.module.scss';
 
 export interface ITime {
   id: number;
@@ -9,13 +11,14 @@ export interface ITime {
 
 interface TimeProps {
   item: ITime;
+  parentClass?: string;
 }
 
-function Time({ item: { heading, description } }: TimeProps) {
+function Time({ item: { heading, description }, parentClass }: TimeProps) {
   return (
-    <div className="info__time time">
-      <h4 className="time__heading">{heading}</h4>
-      <p className="time__description">{description}</p>
+    <div className={classNames(styles.time, parentClass)}>
+      <h4 className={styles.time__heading}>{heading}</h4>
+      <p className={styles.time__description}>{description}</p>
     </div>
   );
 }

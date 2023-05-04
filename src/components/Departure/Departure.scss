@@ -1,9 +1,0 @@
-@use '../../sass-styles/sass/util' as u;
-
-.departure {
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: u.rem(10);
-  }
-}

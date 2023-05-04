@@ -1,0 +1,22 @@
+@use '../../styles-utils/index' as u;
+
+.button {
+  text-transform: uppercase;
+  font-size: u.rem(12);
+  font-weight: 600;
+  border: none;
+  padding: u.rem(15);
+  border-radius: u.rem(5);
+  color: map-get(u.$palette, color-white-2);
+  background-color: map-get(u.$palette, color-blue-1);
+  transition: background-color ease-in-out .15s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: map-get(u.$palette, color-blue-2);
+  }
+
+  &:active {
+    background-color: map-get(u.$palette, color-blue-1);
+  }
+}

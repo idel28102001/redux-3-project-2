@@ -1,11 +1,12 @@
 import React from 'react';
 
-import './Main.scss';
 import TicketSection from '../Ticket-Section';
+
+import styles from './Main.module.scss';
 
 function Main() {
   return (
-    <main className="main">
+    <main className={styles.main}>
       <TicketSection />
     </main>
   );

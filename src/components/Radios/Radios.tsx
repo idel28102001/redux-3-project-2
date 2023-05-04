@@ -1,18 +1,21 @@
+import classNames from 'classnames';
 import React from 'react';
 
-import './Radios.scss';
 import Radio from '../Radio';
 import { IRadio } from '../Radio/Radio';
 
+import styles from './Radios.module.scss';
+
 interface RadiosProps {
   sorts: Array<IRadio>;
+  parentClass?: string;
 }
 
-function Radios({ sorts }: RadiosProps) {
+function Radios({ sorts, parentClass }: RadiosProps) {
   return (
-    <ul className="sort__list radios">
+    <ul className={classNames(styles.radios, parentClass)}>
       {sorts.map((e) => (
-        <li key={e.id} className="radios__item">
+        <li key={e.id} className={styles.radios__item}>
           <Radio sort={e} />
         </li>
       ))}

@@ -1,0 +1,13 @@
+@use '../../styles-utils/index' as u;
+
+
+.info {
+  &__list {
+    list-style-type: none;
+    display: flex;
+  }
+
+  &__item {
+    flex-grow: 1;
+  }
+}

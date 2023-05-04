@@ -1,8 +1,10 @@
+import classNames from 'classnames';
 import React from 'react';
 
-import './Info.scss';
 import Time from '../Time';
 import { ITime } from '../Time/Time';
+
+import styles from './Info.module.scss';
 
 export interface IInfo {
   id: number;
@@ -11,14 +13,15 @@ export interface IInfo {
 
 interface InfoProps {
   item: IInfo;
+  parentClass?: string;
 }
 
-function Info({ item: { timeItems } }: InfoProps) {
+function Info({ item: { timeItems }, parentClass }: InfoProps) {
   return (
-    <div className="departure__info info">
-      <ul className="info__list">
+    <div className={classNames(styles.info, parentClass)}>
+      <ul className={styles.info__list}>
         {timeItems.map((e) => (
-          <li key={e.id} className="info__item">
+          <li key={e.id} className={styles.info__item}>
             <Time item={e} />
           </li>
         ))}

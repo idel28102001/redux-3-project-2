@@ -1,7 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
 
-import './Information.scss';
 import logo from '../../assets/1-logo.png';
+
+import styles from './Information.module.scss';
 
 export interface IInformation {
   price: string;
@@ -10,16 +12,17 @@ export interface IInformation {
 
 interface InformationProps {
   info: IInformation;
+  parentClass?: string;
 }
 
-function Information({ info: { price } }: InformationProps) {
+function Information({ info: { price }, parentClass }: InformationProps) {
   return (
-    <div className="card__information information">
-      <div className="information__price">
-        <span className="information__amount">{price}</span>
+    <div className={classNames(styles.information, parentClass)}>
+      <div>
+        <span className={styles.information__amount}>{price}</span>
       </div>
-      <div className="information__company-logo">
-        <img className="information__img" src={logo} alt="Лого компании" />
+      <div className={styles.information__companyLogo}>
+        <img className={styles.information__img} src={logo} alt="Лого компании" />
       </div>
     </div>
   );

@@ -1,0 +1,10 @@
+@import 'normalize.css';
+@import "@fontsource/open-sans";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

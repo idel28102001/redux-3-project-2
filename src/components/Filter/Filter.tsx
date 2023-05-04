@@ -1,8 +1,9 @@
 import React from 'react';
 
-import './Filter.scss';
 import Checkboxes from '../Checkboxes';
 import { ICheckBox } from '../Checkbox/Checkbox';
+
+import styles from './Filter.module.scss';
 
 function Filter() {
   const filters: Array<ICheckBox> = [
@@ -21,12 +22,12 @@ function Filter() {
     },
   ];
   return (
-    <div className="filter">
-      <div className="filter__header">
-        <h3 className="filter__heading">Количество пересадок</h3>
+    <div className={styles.filter}>
+      <div className={styles.filter__header}>
+        <h3 className={styles.filter__heading}>Количество пересадок</h3>
       </div>
-      <div className="filter__main">
-        <Checkboxes filters={filters} />
+      <div>
+        <Checkboxes filters={filters} parentClass={styles.filter__checkboxes} />
       </div>
     </div>
   );

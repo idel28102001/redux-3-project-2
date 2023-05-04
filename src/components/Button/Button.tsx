@@ -1,8 +1,14 @@
 import React from 'react';
-import './Button.scss';
+import classNames from 'classnames';
 
-function Button() {
-  return <button className="ticket__button button">Показать еще 5 билетов!</button>;
+import styles from './Button.module.scss';
+
+interface ButtonProps {
+  parentClass?: string;
+}
+
+function Button({ parentClass }: ButtonProps) {
+  return <button className={classNames(styles.button, parentClass)}>Показать еще 5 билетов!</button>;
 }
 
 export default Button;

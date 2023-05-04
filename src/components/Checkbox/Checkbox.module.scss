@@ -1,0 +1,58 @@
+@use '../../styles-utils/index' as u;
+
+.checkbox {
+  &__label {
+    cursor: pointer;
+    padding: u.rem(10) u.rem(20);
+    display: flex;
+    font-size: u.rem(13);
+    transition: background-color ease-in-out 150ms;
+
+    &:hover {
+      background-color: map-get(u.$palette, color-white-3);
+    }
+  }
+
+  &__checkmark {
+    transition: border-color ease-in-out 100ms;
+    height: u.rem(20);
+    width: u.rem(20);
+    border: u.rem(1.5) solid map-get(u.$palette, color-white-4);
+    border-radius: u.rem(2);
+    margin-right: u.rem(10);
+    position: relative;
+
+    &:after {
+      transition: opacity ease-in-out .15s;
+      content: "";
+      opacity: 0;
+      position: absolute;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.28571 8L0 4.16123L1.20857 3.0787L4.28571 5.82726L10.7914 0L12 1.09021L4.28571 8Z' fill='%232196F3'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      display: block;
+      height: u.rem(8);
+      width: u.rem(12);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+
+    &:checked + .checkbox__checkmark {
+      border-color: map-get(u.$palette, color-blue-1);
+
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+}

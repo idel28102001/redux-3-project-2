@@ -1,0 +1,22 @@
+@use '../../styles-utils/index' as u;
+
+.information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__amount {
+    font-size: u.rem(24);
+    color: map-get(u.$palette, color-blue-1);
+    font-weight: 600;
+  }
+
+  &__company-logo {
+    max-height: u.rem(36);
+  }
+
+  &__img {
+    object-fit: contain;
+    max-height: 100%;
+  }
+}

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import './Sort.scss';
 import Radios from '../Radios';
 import { IRadio } from '../Radio/Radio';
+
+import styles from './Sort.module.scss';
 
 function Sort() {
   const sorts: Array<IRadio> = [
@@ -11,7 +12,7 @@ function Sort() {
     { id: 3, value: 'optimal', checked: false, label: 'Оптимальный' },
   ];
   return (
-    <div className="sort">
+    <div className={styles.sort}>
       <Radios sorts={sorts} />
     </div>
   );

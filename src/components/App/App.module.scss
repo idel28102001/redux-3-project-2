@@ -1,0 +1,8 @@
+@use '../../styles-utils/index' as u;
+
+.app {
+  font-family: "Open Sans", sans-serif;
+  padding-top: u.rem(50);
+  background-color: map-get(u.$palette, color-white-1);
+}
+

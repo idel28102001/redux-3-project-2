@@ -1,16 +1,18 @@
 import React from 'react';
 
-import './Logo.scss';
 import logo from '../../assets/logo.png';
+import Container from '../Container';
+
+import styles from './Logo.module.scss';
 
 function Logo() {
   return (
-    <section className="logo">
-      <div className="container">
-        <div className="logo__content">
-          <img className="logo__img" src={logo} alt="Лого" />
+    <section className={styles.logo}>
+      <Container>
+        <div className={styles.logo__content}>
+          <img className={styles.logo__img} src={logo} alt="Лого" />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

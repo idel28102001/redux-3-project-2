@@ -1,1 +1,1 @@
-export { default } from './Ticket-Section';
+export { default } from './TicketSection';

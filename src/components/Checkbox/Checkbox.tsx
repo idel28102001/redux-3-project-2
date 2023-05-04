@@ -1,5 +1,7 @@
+import classNames from 'classnames';
 import React, { FC } from 'react';
-import './Checkbox.scss';
+
+import styles from './Checkbox.module.scss';
 
 export interface ICheckBox {
   id: number;
@@ -9,14 +11,15 @@ export interface ICheckBox {
 
 interface CheckBoxProps {
   checkbox: ICheckBox;
+  parentClass?: string;
 }
 
-const Checkbox: FC<CheckBoxProps> = ({ checkbox: { checked, label } }) => {
+const Checkbox: FC<CheckBoxProps> = ({ checkbox: { checked, label }, parentClass }) => {
   return (
-    <div className="checkboxes__checkbox checkbox">
-      <label className="checkbox__label">
-        <input className="checkbox__input" type="checkbox" defaultChecked={checked} />
-        <span className="checkbox__checkmark"></span>
+    <div className={classNames(styles.checkbox, parentClass)}>
+      <label className={styles.checkbox__label}>
+        <input className={styles.checkbox__input} type="checkbox" defaultChecked={checked} />
+        <span className={styles.checkbox__checkmark}></span>
         {label}
       </label>
     </div>
