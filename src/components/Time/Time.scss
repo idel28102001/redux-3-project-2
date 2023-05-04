@@ -1,0 +1,19 @@
+@use '../../sass-styles/sass/util' as u;
+
+.time {
+  gap: u.rem(5);
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    color: var(--color-white-6);
+    font-weight: 500;
+    font-size: u.rem(12);
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: u.rem(14);
+    color: var(--color-black-1);
+  }
+}

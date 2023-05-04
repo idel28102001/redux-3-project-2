@@ -1,0 +1,16 @@
+@use '../../sass-styles/sass/util' as u;
+
+
+.logo {
+  margin-block: u.rem(50);
+
+  &__content {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  &__img {
+    font-size: 0;
+  }
+}

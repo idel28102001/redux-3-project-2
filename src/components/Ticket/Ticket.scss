@@ -1,0 +1,26 @@
+@use '../../sass-styles/sass/util' as u;
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  gap: u.rem(20);
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(20);
+  }
+
+  &__down {
+    display: flex;
+  }
+
+  &__more {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  &__button {
+    flex-grow: 1;
+  }
+}
