@@ -6,6 +6,7 @@ export interface ICheckbox {
   id: number;
   label: string;
   isChecked: boolean;
+  transferLen: number;
 }
 
 export interface ToggleCheckboxAction {
@@ -21,18 +22,20 @@ interface State {
 
 const initialState: State = {
   filters: [
-    { id: 1, label: 'Всё', isChecked: false },
+    { id: 1, label: 'Всё', isChecked: true, transferLen: 0 },
     {
       id: 2,
       label: 'Без пересадок',
-      isChecked: false,
+      isChecked: true,
+      transferLen: 0,
     },
-    { id: 3, label: '1 пересадка', isChecked: false },
-    { id: 4, label: '2 пересадки', isChecked: false },
+    { id: 3, label: '1 пересадка', isChecked: true, transferLen: 1 },
+    { id: 4, label: '2 пересадки', isChecked: true, transferLen: 2 },
     {
       id: 5,
       label: '3 пересадки',
-      isChecked: false,
+      isChecked: true,
+      transferLen: 3,
     },
   ],
 };
@@ -41,11 +44,9 @@ const setIsCheckedToCheckboxes = (value: boolean, filters: Array<ICheckbox>): Ar
   return filters.map((e) => ({ ...e, isChecked: value }));
 };
 const setIsCheckedToAll = (id: number, filter: ICheckbox, filters: Array<ICheckbox>): Array<ICheckbox> => {
-  const isAllTheSameChecked = filters
-    .filter((e) => e.id !== id && e.id !== filter.id)
-    .every((e) => e.isChecked === !filter.isChecked);
+  const isAllTheSameChecked = filters.filter((e) => e.id !== id && e.id !== filter.id).every((e) => e.isChecked);
   return filters.map((e) => {
-    if (e.id === id) return { ...e, isChecked: isAllTheSameChecked };
+    if (e.id === id) return { ...e, isChecked: isAllTheSameChecked && !filter.isChecked };
     if (e.id !== filter.id) return e;
     return { ...e, isChecked: !e.isChecked };
   });

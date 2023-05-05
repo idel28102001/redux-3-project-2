@@ -1,138 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { bindActionCreators } from '@reduxjs/toolkit';
 
 import Button from '../Button';
 import Card from '../Card';
-import { ICard } from '../Card/Card';
+import { useTypedSelect } from '../../hooks/useTypedSelect';
+import { ticketActionCreators } from '../../store/reducers/tickets/action-creators';
+import { useTypedDispatch } from '../../hooks/useTypedDispatch';
+import TicketsService from '../../services/TicketsService';
+import Loader from '../Loader';
 
 import styles from './Ticket.module.scss';
 
 function Ticket() {
-  const cards: Array<ICard> = [
-    {
-      id: 1,
-      info: { price: '13 400 Р', logo: '' },
-      infoItems: [
-        {
-          id: 1,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '10:45 – 08:00' },
-            { id: 2, heading: 'В пути', description: '21ч 15м' },
-            { id: 3, heading: '2 пересадки', description: 'HKG, JNB' },
-          ],
-        },
-        {
-          id: 2,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '11:20 – 00:50' },
-            { id: 2, heading: 'В пути', description: '13ч 30м' },
-            { id: 3, heading: '1 пересадка', description: 'HKG' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 2,
-      info: { price: '13 400 Р', logo: '' },
-      infoItems: [
-        {
-          id: 1,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '10:45 – 08:00' },
-            { id: 2, heading: 'В пути', description: '21ч 15м' },
-            { id: 3, heading: '2 пересадки', description: 'HKG, JNB' },
-          ],
-        },
-        {
-          id: 2,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '11:20 – 00:50' },
-            { id: 2, heading: 'В пути', description: '13ч 30м' },
-            { id: 3, heading: '1 пересадка', description: 'HKG' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 3,
-      info: { price: '13 400 Р', logo: '' },
-      infoItems: [
-        {
-          id: 1,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '10:45 – 08:00' },
-            { id: 2, heading: 'В пути', description: '21ч 15м' },
-            { id: 3, heading: '2 пересадки', description: 'HKG, JNB' },
-          ],
-        },
-        {
-          id: 2,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '11:20 – 00:50' },
-            { id: 2, heading: 'В пути', description: '13ч 30м' },
-            { id: 3, heading: '1 пересадка', description: 'HKG' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 4,
-      info: { price: '13 400 Р', logo: '' },
-      infoItems: [
-        {
-          id: 1,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '10:45 – 08:00' },
-            { id: 2, heading: 'В пути', description: '21ч 15м' },
-            { id: 3, heading: '2 пересадки', description: 'HKG, JNB' },
-          ],
-        },
-        {
-          id: 2,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '11:20 – 00:50' },
-            { id: 2, heading: 'В пути', description: '13ч 30м' },
-            { id: 3, heading: '1 пересадка', description: 'HKG' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 5,
-      info: { price: '13 400 Р', logo: '' },
-      infoItems: [
-        {
-          id: 1,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '10:45 – 08:00' },
-            { id: 2, heading: 'В пути', description: '21ч 15м' },
-            { id: 3, heading: '2 пересадки', description: 'HKG, JNB' },
-          ],
-        },
-        {
-          id: 2,
-          timeItems: [
-            { id: 1, heading: 'MOW – HKT', description: '11:20 – 00:50' },
-            { id: 2, heading: 'В пути', description: '13ч 30м' },
-            { id: 3, heading: '1 пересадка', description: 'HKG' },
-          ],
-        },
-      ],
-    },
-  ];
+  const [limit, setLimit] = useState(5);
+  const {
+    tickets: { tickets: rawTickets, error, isLoading },
+    sort: { status },
+    filter: { filters },
+  } = useTypedSelect((state) => state);
+  const dispatch = useTypedDispatch();
+  const { fetchTickets } = bindActionCreators(ticketActionCreators, dispatch);
+  const tickets = TicketsService.formatTickets(rawTickets, status, filters, limit);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchTickets(controller);
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
+  const list = (
+    <ul className={styles.ticket__list}>
+      {tickets.map((e) => (
+        <li key={e.id}>
+          <Card item={e} />
+        </li>
+      ))}
+    </ul>
+  );
+  const noInfo = 'Рейсов, подходящих под заданные фильтры, не найдено';
+  const content = !tickets.length ? noInfo : list;
   return (
     <div className={styles.ticket}>
-      <div>
-        <ul className={styles.ticket__list}>
-          {cards.map((e) => (
-            <li key={e.id}>
-              <Card item={e} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      {isLoading && <Loader />}
+      {error}
+      <div>{content}</div>
       <div className={styles.ticket__down}>
         <div className={styles.ticket__more}>
-          <Button parentClass={styles.ticket__button} />
+          <Button parentClass={styles.ticket__button} onClickButton={() => setLimit((limit) => limit + 5)} />
         </div>
       </div>
     </div>

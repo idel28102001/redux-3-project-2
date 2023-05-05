@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import logo from '../../assets/1-logo.png';
-
 import styles from './Information.module.scss';
 
 export interface IInformation {
@@ -15,7 +13,7 @@ interface InformationProps {
   parentClass?: string;
 }
 
-function Information({ info: { price }, parentClass }: InformationProps) {
+function Information({ info: { price, logo }, parentClass }: InformationProps) {
   return (
     <div className={classNames(styles.information, parentClass)}>
       <div>
