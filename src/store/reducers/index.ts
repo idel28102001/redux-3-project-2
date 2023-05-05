@@ -1,4 +1,5 @@
 import sort, { SortAction } from './sort';
+import filter, { FilterAction } from './filter';
 
-export type AllActions = SortAction;
-export default { sort };
+export type AllActions = SortAction | FilterAction;
+export default { sort, filter };

@@ -2,10 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Checkbox from '../Checkbox';
-import { ICheckBox } from '../Checkbox/Checkbox';
+import { ICheckbox } from '../../store/reducers/filter';
 
 interface CheckboxesProps {
-  filters: Array<ICheckBox>;
+  filters: Array<ICheckbox>;
   parentClass?: string;
 }
 
