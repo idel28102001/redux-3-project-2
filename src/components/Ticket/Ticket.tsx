@@ -20,7 +20,7 @@ function Ticket() {
   } = useTypedSelect((state) => state);
   const dispatch = useTypedDispatch();
   const { fetchTickets } = bindActionCreators(ticketActionCreators, dispatch);
-  const tickets = TicketsService.formatTickets(rawTickets, status, filters, limit);
+  const { tickets, wholeLen } = TicketsService.formatTickets(rawTickets, status, filters, limit);
   useEffect(() => {
     const controller = new AbortController();
     fetchTickets(controller);
@@ -47,7 +47,9 @@ function Ticket() {
       <div>{content}</div>
       <div className={styles.ticket__down}>
         <div className={styles.ticket__more}>
-          <Button parentClass={styles.ticket__button} onClickButton={() => setLimit((limit) => limit + 5)} />
+          {limit < wholeLen && (
+            <Button parentClass={styles.ticket__button} onClickButton={() => setLimit((limit) => limit + 5)} />
+          )}
         </div>
       </div>
     </div>

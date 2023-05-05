@@ -128,9 +128,10 @@ export default class TicketsService {
     status: SortStatus,
     filters: Array<ICheckbox>,
     limit = 5
-  ): Array<ICard> {
+  ): { tickets: Array<ICard>; wholeLen: number } {
     const filteredTickets = TicketsService.filterTickets(tickets, filters);
     const sortedTickets = TicketsService.sortTickets(filteredTickets, status);
-    return sortedTickets.slice(0, limit).map((item, index) => TicketsService.formatTicket(index, item));
+    const resTickets = sortedTickets.slice(0, limit).map((item, index) => TicketsService.formatTicket(index, item));
+    return { tickets: resTickets, wholeLen: sortedTickets.length };
   }
 }
