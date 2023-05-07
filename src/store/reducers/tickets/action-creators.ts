@@ -3,6 +3,7 @@ import { AppDispatch } from '../../index';
 import TicketsService from '../../../services/TicketsService';
 
 import { PushTicketsAction, SetErrorAction, SetIsLoadingAction, SetTicketsAction, TicketsActionEnum } from './index';
+import { retry } from '../../../common/retry';
 
 const timer = (n: number) => new Promise((res) => setTimeout(res, n));
 export const ticketActionCreators = {
@@ -23,17 +24,12 @@ export const ticketActionCreators = {
     try {
       dispatch(ticketActionCreators.setError(null));
       dispatch(ticketActionCreators.setIsLoading(true));
-      const searchId = await TicketsService.fetchSearchId(controller.signal);
+      const searchId = await retry(() => TicketsService.fetchSearchId(controller.signal), 3, 1000);
       let isStop = false;
       while (!isStop && !controller.signal.aborted) {
-        try {
-          const result = await TicketsService.fetchTickets(searchId, controller.signal);
-          dispatch(ticketActionCreators.pushTickets(result.tickets));
-          isStop = result.stop;
-        } catch (e) {
-          if (e instanceof DOMException) continue;
-          break;
-        }
+        const result = await retry(() => TicketsService.fetchTickets(searchId, controller.signal), 5, 1000);
+        dispatch(ticketActionCreators.pushTickets(result.tickets));
+        isStop = result.stop;
       }
       dispatch(ticketActionCreators.setIsLoading(false));
     } catch (e) {

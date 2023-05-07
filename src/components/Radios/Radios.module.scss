@@ -13,8 +13,6 @@
     align-items: center;
     flex-grow: 1;
     border: 1px solid map-get(u.$palette, color-white-5);
-    background-color: map-get(u.$palette, color-white-2);
-    transition: background-color ease-in-out .15s;
 
     &:first-child {
       border-radius: u.rem(5) 0 0 u.rem(5);
@@ -31,5 +29,6 @@
 
       }
     }
+    
   }
 }

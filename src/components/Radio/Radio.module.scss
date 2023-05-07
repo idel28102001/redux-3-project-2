@@ -5,6 +5,27 @@
   flex-grow: 1;
   transition: background-color ease-in-out .15s;
 
+  &__label {
+    transition-property: background-color, color;
+    transition-timing-function: ease-in-out;
+    transition-duration: .15s;
+    background-color: map-get(u.$palette, color-white-2);
+    flex-grow: 1;
+    justify-content: center;
+    cursor: pointer;
+    color: map-get(u.$palette, color-black-1);
+    display: flex;
+    align-items: center;
+    padding: u.rem(15);
+  }
+
+  &__radio {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+  }
+
   &:not(:has(:checked)) {
     &:hover {
       background: map-get(u.$palette, color-white-5);
@@ -18,29 +39,12 @@
   &:has(:checked) {
     pointer-events: none;
     border-color: transparent;
-    background: map-get(u.$palette, color-blue-1);
 
     .radio__label {
+      background: map-get(u.$palette, color-blue-1);
       color: map-get(u.$palette, color-white-2);
     }
   }
 
-  &__radio {
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-  }
-
-  &__label {
-    flex-grow: 1;
-    justify-content: center;
-    transition: color ease-in-out .15s;
-    cursor: pointer;
-    color: map-get(u.$palette, color-black-1);
-    display: flex;
-    align-items: center;
-    padding: u.rem(15);
-  }
 
 }
