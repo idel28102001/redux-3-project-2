@@ -1,5 +1,5 @@
 @use '../../style-utils/index' as u;
 
 .root {
-  margin-bottom: u.rem(20);
+  grid-area: sort;
 }

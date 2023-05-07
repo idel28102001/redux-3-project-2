@@ -3,7 +3,7 @@
 .root {
   display: flex;
 
-  @include u.breakpoint(small) {
+  @include u.breakpoint(medium) {
     flex-direction: column;
   }
 }

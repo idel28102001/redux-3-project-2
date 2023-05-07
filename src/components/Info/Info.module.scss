@@ -7,6 +7,10 @@
 .list {
   list-style-type: none;
   display: flex;
+  @include u.breakpoint(small) {
+    flex-direction: column;
+    gap: u.rem(10);
+  }
 }
 
 .item {

@@ -12,13 +12,9 @@ function TicketSection() {
     <section>
       <Container>
         <div className={styles.content}>
-          <div>
-            <Filter />
-          </div>
-          <div>
-            <Sort />
-            <Ticket />
-          </div>
+          <Filter />
+          <Sort />
+          <Ticket />
         </div>
       </Container>
     </section>

@@ -1,6 +1,8 @@
 @use '../../style-utils/index' as u;
 
 .root {
+  grid-area: filter;
+  height: max-content;
   overflow: hidden;
   background-color: map-get(u.$palette, color-white-2);
   border-radius: u.rem(5);
@@ -10,7 +12,9 @@
 
 .header {
   margin-bottom: u.rem(10);
-
+  @include u.breakpoint(large) {
+    text-align: center;
+  }
 }
 
 .heading {

@@ -1,6 +1,7 @@
 @use '../../style-utils/index' as u;
 
 .label {
+  text-align: center;
   transition-property: background-color, color;
   transition-timing-function: ease-in-out;
   transition-duration: .15s;

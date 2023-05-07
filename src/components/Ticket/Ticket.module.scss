@@ -1,6 +1,7 @@
 @use '../../style-utils/index' as u;
 
 .root {
+  grid-area: ticket;
   display: flex;
   flex-direction: column;
   gap: u.rem(20);

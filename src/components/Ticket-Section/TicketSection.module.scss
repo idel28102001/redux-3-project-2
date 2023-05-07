@@ -1,9 +1,15 @@
 @use '../../style-utils/index' as u;
 
 .content {
-  display: flex;
+  display: grid;
+  grid-template:
+          'filter sort'
+          'filter ticket';
   gap: u.rem(20);
   @include u.breakpoint(large) {
-    flex-direction: column;
+    grid-template:
+          'sort'
+          'filter'
+          'ticket';
   }
 }

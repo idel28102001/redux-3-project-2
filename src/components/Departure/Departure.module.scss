@@ -8,4 +8,8 @@
   display: flex;
   flex-direction: column;
   gap: u.rem(10);
+  @include u.breakpoint(small) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
