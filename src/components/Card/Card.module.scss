@@ -1,6 +1,6 @@
 @use '../../style-utils/index' as u;
 
-.card {
+.root {
   display: flex;
   flex-direction: column;
   padding: u.rem(20);

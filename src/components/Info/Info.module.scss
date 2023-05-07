@@ -1,13 +1,14 @@
 @use '../../style-utils/index' as u;
 
 
-.info {
-  &__list {
-    list-style-type: none;
-    display: flex;
-  }
+.root {
+}
 
-  &__item {
-    flex-grow: 1;
-  }
+.list {
+  list-style-type: none;
+  display: flex;
+}
+
+.item {
+  flex-grow: 1;
 }

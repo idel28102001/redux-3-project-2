@@ -1,16 +1,17 @@
 @use '../../style-utils/index' as u;
 
 
-.logo {
+.root {
   margin-bottom: u.rem(50);
 
-  &__content {
-    display: flex;
-    justify-content: center;
+}
 
-  }
+.content {
+  display: flex;
+  justify-content: center;
 
-  &__img {
-    font-size: 0;
-  }
+}
+
+.img {
+  font-size: 0;
 }

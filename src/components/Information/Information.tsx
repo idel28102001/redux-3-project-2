@@ -15,12 +15,12 @@ interface InformationProps {
 
 function Information({ info: { price, logo }, parentClass }: InformationProps) {
   return (
-    <div className={classNames(styles.information, parentClass)}>
+    <div className={classNames(styles.root, parentClass)}>
       <div>
-        <span className={styles.information__amount}>{price}</span>
+        <span className={styles.amount}>{price}</span>
       </div>
-      <div className={styles.information__companyLogo}>
-        <img className={styles.information__img} src={logo} alt="Лого компании" />
+      <div className={styles.companyLogo}>
+        <img className={styles.img} src={logo} alt="Лого компании" />
       </div>
     </div>
   );

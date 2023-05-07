@@ -21,7 +21,7 @@ export interface CardProps {
 
 function Card({ item: { infoItems, info }, parentClass }: CardProps) {
   return (
-    <div className={classNames(styles.card, parentClass)}>
+    <div className={classNames(styles.root, parentClass)}>
       <Information info={info} />
       <Departure infoItems={infoItems} />
     </div>

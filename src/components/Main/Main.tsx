@@ -6,7 +6,7 @@ import styles from './Main.module.scss';
 
 function Main() {
   return (
-    <main className={styles.main}>
+    <main className={styles.root}>
       <TicketSection />
     </main>
   );

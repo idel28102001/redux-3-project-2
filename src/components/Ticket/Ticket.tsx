@@ -30,7 +30,7 @@ function Ticket() {
   }, []);
 
   const list = (
-    <ul className={styles.ticket__list}>
+    <ul className={styles.list}>
       {tickets.map((e) => (
         <li key={e.id}>
           <Card item={e} />
@@ -41,14 +41,14 @@ function Ticket() {
   const noInfo = 'Рейсов, подходящих под заданные фильтры, не найдено';
   const content = !tickets.length ? noInfo : list;
   return (
-    <div className={styles.ticket}>
+    <div className={styles.root}>
       {isLoading && <Loader />}
       {error}
       <div>{content}</div>
-      <div className={styles.ticket__down}>
-        <div className={styles.ticket__more}>
+      <div className={styles.down}>
+        <div className={styles.more}>
           {limit < wholeLen && (
-            <Button parentClass={styles.ticket__button} onClickButton={() => setLimit((limit) => limit + 5)} />
+            <Button parentClass={styles.button} onClickButton={() => setLimit((limit) => limit + 5)} />
           )}
         </div>
       </div>

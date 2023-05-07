@@ -25,10 +25,10 @@ function Radio({ sort: { label, value }, parentClass }: RadioProps) {
   const { setStatus } = bindActionCreators(allActionCreators, useTypedDispatch());
   const defaultChecked = status === value;
   return (
-    <div className={classNames(styles.radio, parentClass)}>
-      <label className={styles.radio__label}>
+    <div className={classNames(styles.root, parentClass)}>
+      <label className={styles.label}>
         <input
-          className={styles.radio__radio}
+          className={styles.radio}
           type="radio"
           name="sort"
           value={value}

@@ -8,12 +8,12 @@ import styles from './Filter.module.scss';
 function Filter() {
   const { filters } = useTypedSelect((state) => state.filter);
   return (
-    <div className={styles.filter}>
-      <div className={styles.filter__header}>
-        <h3 className={styles.filter__heading}>Количество пересадок</h3>
+    <div className={styles.root}>
+      <div className={styles.header}>
+        <h3 className={styles.heading}>Количество пересадок</h3>
       </div>
       <div>
-        <Checkboxes filters={filters} parentClass={styles.filter__checkboxes} />
+        <Checkboxes filters={filters} parentClass={styles.checkboxes} />
       </div>
     </div>
   );

@@ -13,9 +13,9 @@ interface RadiosProps {
 
 function Radios({ sorts, parentClass }: RadiosProps) {
   return (
-    <ul className={classNames(styles.radios, parentClass)}>
+    <ul className={classNames(styles.root, parentClass)}>
       {sorts.map((e) => (
-        <li key={e.id} className={styles.radios__item}>
+        <li key={e.id} className={styles.item}>
           <Radio sort={e} />
         </li>
       ))}

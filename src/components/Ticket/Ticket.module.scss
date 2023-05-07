@@ -1,27 +1,28 @@
 @use '../../style-utils/index' as u;
 
-.ticket {
+.root {
   display: flex;
   flex-direction: column;
   gap: u.rem(20);
 
-  &__list {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: u.rem(20);
-  }
+}
 
-  &__down {
-    display: flex;
-  }
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: u.rem(20);
+}
 
-  &__more {
-    display: flex;
-    flex-grow: 1;
-  }
+.down {
+  display: flex;
+}
 
-  &__button {
-    flex-grow: 1;
-  }
+.more {
+  display: flex;
+  flex-grow: 1;
+}
+
+.button {
+  flex-grow: 1;
 }

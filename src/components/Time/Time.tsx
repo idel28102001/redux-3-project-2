@@ -16,9 +16,9 @@ interface TimeProps {
 
 function Time({ item: { heading, description }, parentClass }: TimeProps) {
   return (
-    <div className={classNames(styles.time, parentClass)}>
-      <h4 className={styles.time__heading}>{heading}</h4>
-      <p className={styles.time__description}>{description}</p>
+    <div className={classNames(styles.root, parentClass)}>
+      <header className={styles.heading}>{heading}</header>
+      <span className={styles.description}>{description}</span>
     </div>
   );
 }

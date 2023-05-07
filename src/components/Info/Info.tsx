@@ -18,14 +18,14 @@ interface InfoProps {
 
 function Info({ item: { timeItems }, parentClass }: InfoProps) {
   return (
-    <div className={classNames(styles.info, parentClass)}>
-      <ul className={styles.info__list}>
+    <div className={classNames(styles.root, parentClass)}>
+      <div className={styles.list}>
         {timeItems.map((e) => (
-          <li key={e.id} className={styles.info__item}>
+          <div key={e.id} className={styles.item}>
             <Time item={e} />
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

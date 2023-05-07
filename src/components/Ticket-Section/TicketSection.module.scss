@@ -1,11 +1,9 @@
 @use '../../style-utils/index' as u;
 
-.ticketSection {
-  &__content {
-    display: flex;
-    gap: u.rem(20);
-    @include u.breakpoint(large) {
-      flex-direction: column;
-    }
+.content {
+  display: flex;
+  gap: u.rem(20);
+  @include u.breakpoint(large) {
+    flex-direction: column;
   }
 }

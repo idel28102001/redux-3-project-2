@@ -13,14 +13,14 @@ interface DepartureProps {
 
 function Departure({ infoItems, parentClass }: DepartureProps) {
   return (
-    <div className={classNames(styles.departure, parentClass)}>
-      <ul className={styles.departure__list}>
+    <div className={classNames(styles.root, parentClass)}>
+      <div className={styles.list}>
         {infoItems.map((e) => (
-          <li key={e.id}>
+          <div key={e.id}>
             <Info item={e} />
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

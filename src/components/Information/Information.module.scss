@@ -1,22 +1,23 @@
 @use '../../style-utils/index' as u;
 
-.information {
+.root {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  &__amount {
-    font-size: u.rem(24);
-    color: map-get(u.$palette, color-blue-1);
-    font-weight: 600;
-  }
+}
 
-  &__company-logo {
-    max-height: u.rem(36);
-  }
+.amount {
+  font-size: u.rem(24);
+  color: map-get(u.$palette, color-blue-1);
+  font-weight: 600;
+}
 
-  &__img {
-    object-fit: contain;
-    max-height: 100%;
-  }
+.company-logo {
+  max-height: u.rem(36);
+}
+
+.img {
+  object-fit: contain;
+  max-height: 100%;
 }

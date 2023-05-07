@@ -16,15 +16,15 @@ interface CheckBoxProps {
 const Checkbox: FC<CheckBoxProps> = ({ checkbox, parentClass }) => {
   const { toggleCheckbox } = bindActionCreators(allActionCreators, useTypedDispatch());
   return (
-    <div className={classNames(styles.checkbox, parentClass)}>
-      <label className={styles.checkbox__label}>
+    <div className={classNames(styles.root, parentClass)}>
+      <label className={styles.label}>
         <input
-          className={styles.checkbox__input}
+          className={styles.input}
           type="checkbox"
           checked={checkbox.isChecked}
           onChange={() => toggleCheckbox(checkbox)}
         />
-        <span className={styles.checkbox__checkmark}></span>
+        <span className={styles.checkmark}></span>
         {checkbox.label}
       </label>
     </div>

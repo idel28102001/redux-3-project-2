@@ -12,7 +12,7 @@ interface ButtonProps {
 
 function Button({ parentClass, onClickButton }: ButtonProps) {
   return (
-    <button onClick={() => onClickButton()} className={classNames(styles.button, parentClass)}>
+    <button onClick={() => onClickButton()} className={classNames(styles.root, parentClass)}>
       Показать еще 5 билетов!
     </button>
   );

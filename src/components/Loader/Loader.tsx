@@ -4,8 +4,8 @@ import styles from './Loader.module.scss';
 
 function Loader() {
   return (
-    <div className={styles.loader}>
-      <span className={styles.loader__loader}></span>
+    <div className={styles.root}>
+      <span className={styles.loader}></span>
     </div>
   );
 }

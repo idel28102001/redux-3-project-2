@@ -9,9 +9,9 @@ import styles from './TicketSection.module.scss';
 
 function TicketSection() {
   return (
-    <section className={styles.ticketSection}>
+    <section>
       <Container>
-        <div className={styles.ticketSection__content}>
+        <div className={styles.content}>
           <div>
             <Filter />
           </div>

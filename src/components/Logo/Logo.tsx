@@ -7,10 +7,10 @@ import styles from './Logo.module.scss';
 
 function Logo() {
   return (
-    <section className={styles.logo}>
+    <section className={styles.root}>
       <Container>
-        <div className={styles.logo__content}>
-          <img className={styles.logo__img} src={logo} alt="Лого" />
+        <div className={styles.content}>
+          <img className={styles.img} src={logo} alt="Лого" />
         </div>
       </Container>
     </section>

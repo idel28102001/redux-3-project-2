@@ -13,7 +13,7 @@ function Sort() {
     { id: 3, value: SortStatus.optimal, label: 'Оптимальный' },
   ];
   return (
-    <div className={styles.sort}>
+    <div className={styles.root}>
       <Radios sorts={sorts} />
     </div>
   );
